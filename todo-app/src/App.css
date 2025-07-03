@@ -186,3 +186,10 @@
 .delete-button:active {
   transform: translateY(1px);
 }
+
+.task-stats {
+  margin: 16px 0;
+  font-weight: bold;
+  text-align: center;
+  color: #555;
+}

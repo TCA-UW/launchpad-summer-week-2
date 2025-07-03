@@ -26,7 +26,6 @@ function App() {
   };
 
   const deleteTask = (taskId) => {
-    // Optional: Add confirmation dialog
     if (window.confirm('Are you sure you want to delete this task?')) {
       setTasks(tasks.filter(task => task.id !== taskId));
     }
@@ -36,7 +35,6 @@ function App() {
     setFilter(newFilter);
   };
 
-  // Filter tasks based on current filter
   const getFilteredTasks = () => {
     switch (filter) {
       case 'active':
@@ -50,6 +48,10 @@ function App() {
 
   const filteredTasks = getFilteredTasks();
 
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter(task => task.completed).length;
+  const remainingTasks = tasks.filter(task => !task.completed).length;
+
   return (
     <div className="App">
       <div className="App-header">
@@ -61,6 +63,11 @@ function App() {
           currentFilter={filter}
           onFilterChange={changeFilter}
         />
+
+        <div className="task-stats">
+          Total: {totalTasks} | Completed: {completedTasks} | Remaining: {remainingTasks}
+        </div>
+
         <TaskList 
           tasks={filteredTasks} 
           onToggleTask={toggleTask}
