@@ -22,6 +22,13 @@ function App() {
     ));
   };
 
+  const deleteTask = (taskId) => {
+
+    if (window.confirm('Are you sure you want to delete this task?')) {
+      setTasks(tasks.filter(task => task.id !== taskId));
+    }
+  };
+
   return (
     <div className="App">
       <div className="App-header">
@@ -29,7 +36,11 @@ function App() {
       </div>
       <div className="todo-container">
         <AddTaskForm onAddTask={addTask} />
-        <TaskList tasks={tasks} onToggleTask={toggleTask} />
+        <TaskList 
+          tasks={tasks} 
+          onToggleTask={toggleTask}
+          onDeleteTask={deleteTask}
+        />
       </div>
     </div>
   );

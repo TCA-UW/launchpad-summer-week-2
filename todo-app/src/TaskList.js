@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TaskList({ tasks, onToggleTask }) {
+function TaskList({ tasks, onToggleTask, onDeleteTask }) {
   return (
     <div className="task-list">
       {tasks.length === 0 ? (
@@ -18,7 +18,7 @@ function TaskList({ tasks, onToggleTask }) {
               {task.text}
             </span>
             <button 
-              onClick={() => {/* Will handle this later */}}
+              onClick={() => onDeleteTask(task.id)}
               className="delete-button"
             >
               Delete
