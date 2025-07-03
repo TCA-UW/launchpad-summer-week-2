@@ -14,6 +14,14 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const toggleTask = (taskId) => {
+    setTasks(tasks.map(task => 
+      task.id === taskId 
+        ? { ...task, completed: !task.completed }
+        : task
+    ));
+  };
+
   return (
     <div className="App">
       <div className="App-header">
@@ -21,7 +29,7 @@ function App() {
       </div>
       <div className="todo-container">
         <AddTaskForm onAddTask={addTask} />
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} onToggleTask={toggleTask} />
       </div>
     </div>
   );

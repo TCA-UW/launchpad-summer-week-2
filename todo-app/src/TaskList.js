@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, onToggleTask }) {
   return (
     <div className="task-list">
       {tasks.length === 0 ? (
@@ -11,7 +11,7 @@ function TaskList({ tasks }) {
             <input
               type="checkbox"
               checked={task.completed}
-              onChange={() => {/* Will handle this later */}}
+              onChange={() => onToggleTask(task.id)}
               className="task-checkbox"
             />
             <span className={`task-text ${task.completed ? 'completed' : ''}`}>
