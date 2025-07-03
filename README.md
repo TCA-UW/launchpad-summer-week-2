@@ -1,1 +1,1 @@
-# launchpad-summer-todo-list-app
+# launchpad-summer-week-2
